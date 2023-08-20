@@ -41,6 +41,7 @@ def calcular_sk(data_frame):
 data_frame_original = pd.read_csv("UNI_CORR_500_01.txt", delimiter="\t", header=0, skiprows=3)
 data_frame = data_frame_original.copy()
 df_velocidad_01 = data_frame_original.groupby("# PersID", group_keys=False).apply(calcular_velocidad_grupo)
+
 calcular_sk(data_frame_original)
 
 # Variable para mantener el estado de la base de datos
@@ -68,6 +69,7 @@ with st.sidebar:
     if st.button("UNI_CORR_500_01.txt"):
         data_frame = data_frame_original.copy()  
         df_velocidad_01 = data_frame.groupby("# PersID", group_keys=False).apply(calcular_velocidad_grupo)
+
         calcular_sk(data_frame)
 
 st.write("### Primeros 5 valores de la base de datos")
